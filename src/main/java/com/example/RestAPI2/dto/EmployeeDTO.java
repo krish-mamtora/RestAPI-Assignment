@@ -1,17 +1,20 @@
 package com.example.RestAPI2.dto;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.*;
 
 import java.util.Date;
 
 public class EmployeeDTO {
 
     private Integer id;
-
+    @NotNull(message = "Employee name cannot be null")
     private String Name;
-
+    @NotNull
+    @Email(message = "Please provide a valid email address")
     private String email;
 
+    @NotNull(message = "Department name cannot be null")
     private String department;
 
     private Date createdAt;
@@ -21,9 +24,12 @@ public class EmployeeDTO {
     public String getPictureType() { return pictureType; }
     public void setPictureType(String pictureType) { this.pictureType = pictureType; }
 
-    @Column(nullable = false)
-    private String password;
 
+    @Column(nullable = false)
+    @NotBlank(message = "Password cannot be null or blank")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).*", message = "Password must contain at least one digit, one lowercase, and one uppercase letter")
+    private String password;
     public EmployeeDTO(){
 
     }
