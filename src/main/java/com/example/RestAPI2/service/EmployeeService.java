@@ -22,31 +22,33 @@ public class EmployeeService  {
         employee.setName((dto.getName()));
         employee.setDepartment(dto.getDepartment());
         employee.setEmail(dto.getEmail());
-
+        employee.setPassword(dto.getPassword());
         employeeRepository.save(employee);
     }
 
     public List<EmployeeDTO> getAllEmployees() {
         List<Employee> employees = employeeRepository.findAll();
         List<EmployeeDTO>dtoList = new ArrayList<>();
-        for(Employee book : employees){
+        for(Employee emp : employees){
             EmployeeDTO dto = new EmployeeDTO();
-            dto.setId(book.getId());
-            dto.setDepartment(book.getDepartment());
-            dto.setEmail(book.getEmail());
-            dto.setName(book.getName());
+            dto.setId(emp.getId());
+            dto.setDepartment(emp.getDepartment());
+            dto.setEmail(emp.getEmail());
+            dto.setName(emp.getName());
+            dto.setPassword(emp.getPassword());
             dtoList.add(dto);
         }
         return dtoList;
     }
 
     public EmployeeDTO getEmployeeById(Integer id) {
-        Employee book = employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found"));
+        Employee emp = employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found"));
         EmployeeDTO dto = new EmployeeDTO();
-        dto.setId(book.getId());
-        dto.setDepartment(book.getDepartment());
-        dto.setEmail(book.getEmail());
-        dto.setName(book.getName());
+        dto.setId(emp.getId());
+        dto.setDepartment(emp.getDepartment());
+        dto.setEmail(emp.getEmail());
+        dto.setName(emp.getName());
+        dto.setPassword(emp.getPassword());
         return dto;
     }
 

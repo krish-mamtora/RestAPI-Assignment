@@ -1,5 +1,7 @@
 package com.example.RestAPI2.dto;
 
+import jakarta.persistence.Column;
+
 import java.util.Date;
 
 public class EmployeeDTO {
@@ -18,20 +20,30 @@ public class EmployeeDTO {
     private String pictureType;
     public String getPictureType() { return pictureType; }
     public void setPictureType(String pictureType) { this.pictureType = pictureType; }
+
+    @Column(nullable = false)
+    private String password;
+
     public EmployeeDTO(){
 
     }
 
-    public EmployeeDTO(Integer id, String name, String email, String department, Date createdAt, byte[] profilePicture, String pictureType) {
+    public EmployeeDTO(Integer id, String Name, String email, String department, Date createdAt, byte[] profilePicture, String pictureType) {
         this.id = id;
-        Name = name;
+        this.Name = Name;
         this.email = email;
         this.department = department;
         this.createdAt = createdAt;
         this.profilePicture = profilePicture;
         this.pictureType = pictureType;
     }
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public Integer getId() {
         return id;
     }
@@ -52,8 +64,8 @@ public class EmployeeDTO {
         return Name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setName(String Name) {
+         Name = Name;
     }
 
     public String getEmail() {
