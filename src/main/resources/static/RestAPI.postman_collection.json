@@ -1,0 +1,290 @@
+{
+  "info": {
+    "_postman_id": "c9affd37-d2bc-47cf-b930-a5ff1549e2c3",
+    "name": "RestAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51824421",
+    "_collection_link": "https://go.postman.co/collection/51824421-c9affd37-d2bc-47cf-b930-a5ff1549e2c3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "add image",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "bca7a0d0-aa02-453d-a57d-859bce6c4527",
+              "src": "/C:/Users/mamtokri/Pictures/Screenshots/Screenshot 2026-01-28 224745.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/employees/1/profile-image",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1",
+            "profile-image"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"abhay\" ,\r\n    \"email\": \"abhay@gmail.com\",\r\n    \"password\": \"strongPassword123\",\r\n    \"department\": \"Engineering\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/employees",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "all employee",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"dev\",\r\n  \"email\": \"k.p@gmail.com\",\r\n  \"password\": \"strongPassword123\",\r\n  \"department\": \"Engineering\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "localhost:8080/employees",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get image",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/employees/1/profile-image",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1",
+            "profile-image"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete employee",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"dev\",\r\n  \"email\": \"k.p@gmail.com\",\r\n  \"password\": \"strongPassword123\",\r\n  \"department\": \"Engineering\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "localhost:8080/employees/1",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update employee",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n       \"name\":\"Raj\",\r\n        \"department\": \"ABCD\",\r\n        \"email\": \"k.p@gmail.com\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/employees/52",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "52"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "URI versioning",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"dev\",\r\n  \"email\": \"k.p@gmail.com\",\r\n  \"password\": \"strongPassword123\",\r\n  \"department\": \"Engineering\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "localhost:8080/api/v2/employees",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v2",
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Param versioning",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/employees?virsion=2",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "employees"
+          ],
+          "query": [
+            {
+              "key": "virsion",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Header versioning",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api-version",
+            "value": "2",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"dev\",\r\n  \"email\": \"k.p@gmail.com\",\r\n  \"password\": \"strongPassword123\",\r\n  \"department\": \"Engineering\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "localhost:8080/api/employees",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Media versioning",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.employee-v2+json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"dev\",\r\n  \"email\": \"k.p@gmail.com\",\r\n  \"password\": \"strongPassword123\",\r\n  \"department\": \"Engineering\"\r\n}\r\n"
+        },
+        "url": {
+          "raw": "localhost:8080/api/employees",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
