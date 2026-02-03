@@ -9,7 +9,7 @@ public class EmployeeDTO {
 
     private Integer id;
     @NotNull(message = "Employee name cannot be null")
-    private String Name;
+    private String name;
     @NotNull
     @Email(message = "Please provide a valid email address")
     private String email;
@@ -30,9 +30,9 @@ public class EmployeeDTO {
 
     }
 
-    public EmployeeDTO(Integer id, String Name, String email, String department, Date createdAt) {
+    public EmployeeDTO(Integer id, String name, String email, String department, Date createdAt) {
         this.id = id;
-        this.Name = Name;
+        this.name = name;
         this.email = email;
         this.department = department;
         this.createdAt = createdAt;
@@ -54,11 +54,11 @@ public class EmployeeDTO {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-         Name = Name;
+    public void setName(String name) {
+         name = name;
     }
 
     public String getEmail() {

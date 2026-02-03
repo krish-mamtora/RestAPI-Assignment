@@ -16,7 +16,7 @@ public class Employee {
     private Integer id;
 
     @Column(nullable = false)
-    private String Name;
+    private String name;
 
     @Column(unique = true, length = 100, nullable = false)
     private String email;
@@ -64,11 +64,11 @@ public class Employee {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

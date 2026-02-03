@@ -3,6 +3,7 @@ package com.example.RestAPI2.service;
 import com.example.RestAPI2.dto.EmployeeDTO;
 import com.example.RestAPI2.dto.EmployeeResponseDTO;
 import com.example.RestAPI2.dto.EmployessRequestDTO;
+import com.example.RestAPI2.exception.ResoueceNotFountException;
 import com.example.RestAPI2.model.Employee;
 import com.example.RestAPI2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class EmployeeServiceImp implements EmployeeService{
     private  EmployeeRepository employeeRepository;
 
     private Employee getEmployee(Integer id){
-        return employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found"));
+        return employeeRepository.findById(id).orElseThrow(
+                ()->new ResoueceNotFountException("Employee not found"));
     }
     private EmployeeResponseDTO map(Employee e){
         EmployeeResponseDTO dto = new EmployeeResponseDTO();
