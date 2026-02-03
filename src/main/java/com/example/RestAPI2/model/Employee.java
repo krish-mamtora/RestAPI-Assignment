@@ -35,21 +35,26 @@ public class Employee {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-
-    private String pictureType;
-
     @Lob
-    @Column(name = "profile_image")
-    private byte[] profilePicture;
+    private byte[] profileImage;
+    private String profileImageType;
 
-    public byte[] getProfilePicture() {
-        return profilePicture;
+    public byte[] getProfileImage() {
+        return profileImage;
     }
-    public String getPictureType() { return pictureType; }
-    public void setPictureType(String pictureType) { this.pictureType = pictureType; }
-    public void setProfilePicture(byte[] profilePicture) {
-        this.profilePicture = profilePicture;
+
+    public void setProfileImage(byte[] profileImage) {
+        this.profileImage = profileImage;
     }
+
+    public String getProfileImageType() {
+        return profileImageType;
+    }
+
+    public void setProfileImageType(String profileImageType) {
+        this.profileImageType = profileImageType;
+    }
+
     public Integer getId() {
         return id;
     }
