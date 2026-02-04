@@ -1,6 +1,7 @@
 package com.example.RestAPI2.controller;
 import com.example.RestAPI2.dto.EmployeeResponseDTO;
 import com.example.RestAPI2.dto.EmployessRequestDTO;
+import com.example.RestAPI2.service.EmployeeService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,8 +20,11 @@ import java.util.List;
 @Validated
 public class EmployeeController {
 
-    @Autowired
-    EmployeeServiceImp employeeService;
+    private EmployeeService employeeService;
+
+    public  EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
 
     @PostMapping
     public ResponseEntity<EmployeeResponseDTO> createEmployee(@Validated @RequestBody EmployessRequestDTO employeeDTO) {
