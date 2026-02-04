@@ -3,7 +3,8 @@ package com.example.RestAPI2.service;
 import com.example.RestAPI2.dto.EmployeeDTO;
 import com.example.RestAPI2.dto.EmployeeResponseDTO;
 import com.example.RestAPI2.dto.EmployessRequestDTO;
-import com.example.RestAPI2.exception.ResoueceNotFountException;
+import com.example.RestAPI2.exception.BadRequestException;
+//import com.example.RestAPI2.exception.ResourceNotFoundException;
 import com.example.RestAPI2.model.Employee;
 import com.example.RestAPI2.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class EmployeeServiceImp implements EmployeeService{
 
     private Employee getEmployee(Integer id){
         return employeeRepository.findById(id).orElseThrow(
-                ()->new ResoueceNotFountException("Employee not found"));
+                ()->new RuntimeException("Employee not found!!!!"));
     }
     private EmployeeResponseDTO map(Employee e){
         EmployeeResponseDTO dto = new EmployeeResponseDTO();
@@ -74,7 +75,7 @@ public class EmployeeServiceImp implements EmployeeService{
             e.setProfileImageType(file.getContentType());
             employeeRepository.save(e);
         }catch(IOException ex){
-            throw new RuntimeException("Image upload failed");
+            throw new BadRequestException("Image upload failed");
         }
     }
 
